@@ -1,81 +1,44 @@
-# Dlib Compiled Binary Wheels for Python 3.7 - 3.12 on Windows (x64 CPUs)
+# dlib Wheels for Windows x64
 
-This repository provides pre-compiled binary wheels (.whl files) for the Dlib library, making it easy to install on Python versions 3.7, 3.8, 3.9, 3.10, 3.11, and 3.12 on Windows (x64 architecture).
+[![Wheel audit](https://github.com/akhil15123/Digital-Check-in-System/actions/workflows/ci.yml/badge.svg)](https://github.com/akhil15123/Digital-Check-in-System/actions/workflows/ci.yml)
 
-## Overview
-If you have encountered issues such as "Failed to build dlib" or "Failed building wheel for dlib," this repository offers a straightforward solution. You can now install the Dlib and Face Recognition libraries without errors by following a few simple steps.
+A compatibility archive of precompiled dlib wheels for 64-bit Windows and CPython 3.7–3.12. It is intended for older face-recognition prototypes that cannot build dlib locally.
 
-Watch the step-by-step installation tutorial here: **[Murtaza i Tech on YouTube](https://www.youtube.com/watch?v=cV4-uMobeM4)**.
+## Available wheels
 
-### Topics Covered
-- Fixing "Failed to build dlib" and "Failed building wheel for dlib" errors
-- Resolving pip installation issues for Dlib and Face Recognition
-- Installing Dlib and Face Recognition libraries on Python 3.7 - 3.12
-- Troubleshooting installation problems related to CMake and legacy builds
+| Python | Wheel |
+| --- | --- |
+| 3.7 | `dlib-19.19.0-cp37-cp37m-win_amd64.whl` |
+| 3.8 | `dlib-19.19.0-cp38-cp38-win_amd64.whl` |
+| 3.9 | `dlib-19.22.1-cp39-cp39-win_amd64.whl` |
+| 3.10 | `dlib-19.22.99-cp310-cp310-win_amd64.whl` |
+| 3.11 | `dlib-19.24.1-cp311-cp311-win_amd64.whl` |
+| 3.12 | `dlib-19.24.99-cp312-cp312-win_amd64.whl` |
 
-## Installation Instructions
-Follow these three steps to install Dlib and Face Recognition without errors:
+All wheels target `win_amd64`; they do not support macOS, Linux, ARM Windows, PyPy, or a different CPython version.
 
-### Step 1: Install CMake
-Run the following command in your terminal or command prompt:
-```bash
-pip install cmake
+## Install
+
+Download the wheel matching `python --version`, then run:
+
+```powershell
+python -m pip install --upgrade pip
+python -m pip install path\to\dlib-19.24.1-cp311-cp311-win_amd64.whl
+python -m pip install face-recognition
 ```
 
-### Step 2: Install Dlib
-Download the appropriate `.whl` file for your Python version from this repository. Navigate to the folder where the file is located using the command prompt, and run:
-```bash
-pip install <filename>
-```
-Replace `<filename>` with the name of the downloaded `.whl` file.
+Installing CMake is not required when a compatible binary wheel installs successfully.
 
-#### Example Commands
-- For Python 3.7:
-  ```bash
-  python -m pip install dlib-19.22.99-cp37-cp37m-win_amd64.whl
-  ```
-- For Python 3.8:
-  ```bash
-  python -m pip install dlib-19.22.99-cp38-cp38-win_amd64.whl
-  ```
-- For Python 3.9:
-  ```bash
-  python -m pip install dlib-19.22.99-cp39-cp39-win_amd64.whl
-  ```
-- For Python 3.10:
-  ```bash
-  python -m pip install dlib-19.22.99-cp310-cp310-win_amd64.whl
-  ```
-- For Python 3.11:
-  ```bash
-  python -m pip install dlib-19.24.1-cp311-cp311-win_amd64.whl
-  ```
-- For Python 3.12:
-  ```bash
-  python -m pip install dlib-19.24.99-cp312-cp312-win_amd64.whl
-  ```
+## Audit the archive
 
-### Step 3: Install Face Recognition
-Once Dlib is successfully installed, install the Face Recognition library using:
 ```bash
-pip install face-recognition
+python scripts/audit_wheels.py
 ```
 
-### Notes
-- The file name suffixes like `cp37` correspond to CPython version 3.7, `cp38` to CPython 3.8, and so on.
-- Ensure that you are using the correct `.whl` file for your Python version and system architecture (Windows x64).
+The audit verifies each wheel as a ZIP archive, confirms its internal platform tag, and prints a SHA-256 digest that can be recorded before distribution.
 
-## Troubleshooting
-If you encounter any issues, revisit the installation steps and ensure that:
-- You have the correct version of Python installed.
-- You downloaded the appropriate `.whl` file for your Python version.
-- CMake is installed prior to installing Dlib.
+## Security notice
 
-## Support
-For further assistance, please refer to the YouTube tutorial linked above or open an issue in this repository.
+Binary wheels execute native code. These historical artifacts are provided for reproducibility and are not official dlib releases. Prefer a current package from a trusted index or build from the official source when possible. Verify the reported digest before sharing a wheel and test it in an isolated environment.
 
----
-
-### Quick Links
-- **[Dlib Official Documentation](http://dlib.net/)**
-- **[Face Recognition GitHub Repository](https://github.com/ageitgey/face_recognition)**
+The nested ZIP is retained as a legacy download bundle; the individual wheels are the canonical copies in this repository.

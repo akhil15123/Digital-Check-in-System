@@ -1,5 +1,13 @@
 # dlib Wheels for Windows x64
 
+
+<!-- portfolio-showcase:start -->
+<p align="center">
+  <img src="docs/showcase.svg" alt="Windows dlib Compatibility Lab synthetic product showcase" width="100%">
+</p>
+<p align="center"><sub><strong>Portfolio preview:</strong> all names, records, metrics, and scenarios shown above are synthetic. No real user or customer data is included.</sub></p>
+<!-- portfolio-showcase:end -->
+
 [![Wheel audit](https://github.com/akhil15123/Digital-Check-in-System/actions/workflows/ci.yml/badge.svg)](https://github.com/akhil15123/Digital-Check-in-System/actions/workflows/ci.yml)
 
 A compatibility archive of precompiled dlib wheels for 64-bit Windows and CPython 3.7–3.12. It is intended for older face-recognition prototypes that cannot build dlib locally.
